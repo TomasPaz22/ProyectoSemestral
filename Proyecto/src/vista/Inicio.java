@@ -1,18 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package vista;
 
-/**
- *
- * @author tomas
- */
+import java.awt.Color;
+
+
 public class Inicio extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Inicio
-     */
+    int xMouse, yMouse; //variables para cada eje
+    
+    
     public Inicio() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -35,7 +30,10 @@ public class Inicio extends javax.swing.JFrame {
         JB_CrearCuenta = new javax.swing.JButton();
         JB_ActualizarDatos = new javax.swing.JButton();
         JB_EliminarCuenta = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jP_Barra = new javax.swing.JPanel();
+        jP_CerrarX = new javax.swing.JPanel();
+        jL_exit = new javax.swing.JLabel();
+        jL_FondoMorado = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -51,89 +49,155 @@ public class Inicio extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JB_Ingresar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
-        JB_Ingresar.setForeground(new java.awt.Color(255, 255, 255));
-        JB_Ingresar.setText("INGRESAR");
-        JB_Ingresar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        JB_Ingresar.setBackground(new java.awt.Color(255, 153, 255));
+        JB_Ingresar.setFont(new java.awt.Font("Calisto MT", 0, 24)); // NOI18N
+        JB_Ingresar.setText("Ingresar");
+        JB_Ingresar.setToolTipText("");
+        JB_Ingresar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         JB_Ingresar.setContentAreaFilled(false);
+        JB_Ingresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JB_Ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JB_IngresarActionPerformed(evt);
             }
         });
-        jPanel1.add(JB_Ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 270, 60));
+        jPanel1.add(JB_Ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 190, 50));
 
-        JB_Listar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
-        JB_Listar.setForeground(new java.awt.Color(255, 255, 255));
-        JB_Listar.setText("LISTAR");
+        JB_Listar.setBackground(new java.awt.Color(255, 153, 255));
+        JB_Listar.setFont(new java.awt.Font("Calisto MT", 0, 24)); // NOI18N
+        JB_Listar.setText("Listar");
         JB_Listar.setActionCommand("");
-        JB_Listar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        JB_Listar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         JB_Listar.setContentAreaFilled(false);
+        JB_Listar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JB_Listar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JB_ListarActionPerformed(evt);
             }
         });
-        jPanel1.add(JB_Listar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, 270, 60));
+        jPanel1.add(JB_Listar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, 190, 50));
 
-        JB_CrearCuenta.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
-        JB_CrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
-        JB_CrearCuenta.setText("CREAR CUENTA");
-        JB_CrearCuenta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        JB_CrearCuenta.setBackground(new java.awt.Color(255, 153, 255));
+        JB_CrearCuenta.setFont(new java.awt.Font("Calisto MT", 0, 24)); // NOI18N
+        JB_CrearCuenta.setText("Crear");
+        JB_CrearCuenta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         JB_CrearCuenta.setContentAreaFilled(false);
+        JB_CrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JB_CrearCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JB_CrearCuentaActionPerformed(evt);
             }
         });
-        jPanel1.add(JB_CrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 280, 60));
+        jPanel1.add(JB_CrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 190, 50));
 
-        JB_ActualizarDatos.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
-        JB_ActualizarDatos.setForeground(new java.awt.Color(255, 255, 255));
-        JB_ActualizarDatos.setText("ACTUALIZAR DATOS");
+        JB_ActualizarDatos.setBackground(new java.awt.Color(255, 153, 255));
+        JB_ActualizarDatos.setFont(new java.awt.Font("Calisto MT", 0, 24)); // NOI18N
+        JB_ActualizarDatos.setText("Actualizar");
         JB_ActualizarDatos.setActionCommand("");
-        JB_ActualizarDatos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        JB_ActualizarDatos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         JB_ActualizarDatos.setContentAreaFilled(false);
+        JB_ActualizarDatos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JB_ActualizarDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JB_ActualizarDatosActionPerformed(evt);
             }
         });
-        jPanel1.add(JB_ActualizarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 360, 280, 60));
+        jPanel1.add(JB_ActualizarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 190, 50));
 
-        JB_EliminarCuenta.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 36)); // NOI18N
-        JB_EliminarCuenta.setForeground(new java.awt.Color(255, 255, 255));
-        JB_EliminarCuenta.setText("ELIMINAR CUENTA");
+        JB_EliminarCuenta.setBackground(new java.awt.Color(255, 153, 255));
+        JB_EliminarCuenta.setFont(new java.awt.Font("Calisto MT", 0, 24)); // NOI18N
+        JB_EliminarCuenta.setText("Eliminar");
         JB_EliminarCuenta.setActionCommand("");
-        JB_EliminarCuenta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        JB_EliminarCuenta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         JB_EliminarCuenta.setContentAreaFilled(false);
+        JB_EliminarCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JB_EliminarCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JB_EliminarCuentaActionPerformed(evt);
             }
         });
-        jPanel1.add(JB_EliminarCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, 280, 60));
+        jPanel1.add(JB_EliminarCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 190, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Menu vacio.png"))); // NOI18N
-        jLabel1.setBorder(new javax.swing.border.MatteBorder(null));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jP_Barra.setBackground(new java.awt.Color(204, 204, 204));
+        jP_Barra.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jP_BarraMouseDragged(evt);
+            }
+        });
+        jP_Barra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jP_BarraMousePressed(evt);
+            }
+        });
+
+        jP_CerrarX.setBackground(new java.awt.Color(255, 0, 153));
+        jP_CerrarX.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jP_CerrarXMouseEntered(evt);
+            }
+        });
+
+        jL_exit.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        jL_exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jL_exit.setText("X");
+        jL_exit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jL_exit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jL_exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_exitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jL_exitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_exitMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jP_CerrarXLayout = new javax.swing.GroupLayout(jP_CerrarX);
+        jP_CerrarX.setLayout(jP_CerrarXLayout);
+        jP_CerrarXLayout.setHorizontalGroup(
+            jP_CerrarXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jL_exit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+        );
+        jP_CerrarXLayout.setVerticalGroup(
+            jP_CerrarXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jL_exit, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jP_BarraLayout = new javax.swing.GroupLayout(jP_Barra);
+        jP_Barra.setLayout(jP_BarraLayout);
+        jP_BarraLayout.setHorizontalGroup(
+            jP_BarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_BarraLayout.createSequentialGroup()
+                .addComponent(jP_CerrarX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(776, Short.MAX_VALUE))
+        );
+        jP_BarraLayout.setVerticalGroup(
+            jP_BarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jP_CerrarX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jP_Barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 40));
+
+        jL_FondoMorado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/inci.jpg"))); // NOI18N
+        jL_FondoMorado.setText("jLabel1");
+        jPanel1.add(jL_FondoMorado, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 70, 510));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -177,6 +241,33 @@ public class Inicio extends javax.swing.JFrame {
         newframe.setLocationRelativeTo(null);
     }//GEN-LAST:event_JB_EliminarCuentaActionPerformed
 
+    private void jL_exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_exitMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jL_exitMouseClicked
+
+    private void jL_exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_exitMouseEntered
+        jP_CerrarX.setBackground(Color.red);
+    }//GEN-LAST:event_jL_exitMouseEntered
+
+    private void jL_exitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_exitMouseExited
+        jP_CerrarX.setBackground(new Color(255,0,153));
+    }//GEN-LAST:event_jL_exitMouseExited
+
+    private void jP_CerrarXMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_CerrarXMouseEntered
+        //ME EQUIVOQUÉ
+    }//GEN-LAST:event_jP_CerrarXMouseEntered
+
+    private void jP_BarraMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_BarraMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse,y- yMouse);
+    }//GEN-LAST:event_jP_BarraMouseDragged
+
+    private void jP_BarraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_BarraMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_jP_BarraMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -218,7 +309,10 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton JB_EliminarCuenta;
     private javax.swing.JButton JB_Ingresar;
     private javax.swing.JButton JB_Listar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jL_FondoMorado;
+    private javax.swing.JLabel jL_exit;
+    private javax.swing.JPanel jP_Barra;
+    private javax.swing.JPanel jP_CerrarX;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

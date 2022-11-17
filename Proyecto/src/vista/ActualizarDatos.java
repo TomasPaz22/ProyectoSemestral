@@ -1,18 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package vista;
 
-/**
- *
- * @author tomas
- */
+import java.awt.Color;
+
 public class ActualizarDatos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ActualizarDatos
-     */
+    int xMouse, yMouse; //variables para cada eje
+    
     public ActualizarDatos() {
         initComponents();
     }
@@ -27,73 +20,165 @@ public class ActualizarDatos extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jP_Barra = new javax.swing.JPanel();
+        jP_CerrarX = new javax.swing.JPanel();
+        jL_exit = new javax.swing.JLabel();
+        jB_Regresar = new javax.swing.JButton();
+        jL_FondoMorado = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("REGRESAR");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jButton2.setContentAreaFilled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        jP_Barra.setBackground(new java.awt.Color(204, 204, 204));
+        jP_Barra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP_Barra.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jP_BarraMouseDragged(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 550, 170, 40));
-
-        jButton1.setForeground(new java.awt.Color(255, 51, 0));
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 102)));
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jP_Barra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jP_BarraMousePressed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 330, 100));
 
-        jButton3.setForeground(new java.awt.Color(255, 51, 0));
-        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 102)));
-        jButton3.setContentAreaFilled(false);
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 330, 100));
+        jP_CerrarX.setBackground(new java.awt.Color(255, 0, 153));
+        jP_CerrarX.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jP_CerrarXMouseEntered(evt);
+            }
+        });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/actualizar.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jL_exit.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        jL_exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jL_exit.setText("X");
+        jL_exit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jL_exit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jL_exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_exitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jL_exitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_exitMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jP_CerrarXLayout = new javax.swing.GroupLayout(jP_CerrarX);
+        jP_CerrarX.setLayout(jP_CerrarXLayout);
+        jP_CerrarXLayout.setHorizontalGroup(
+            jP_CerrarXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jL_exit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+        );
+        jP_CerrarXLayout.setVerticalGroup(
+            jP_CerrarXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jL_exit, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        jB_Regresar.setBackground(new java.awt.Color(255, 153, 255));
+        jB_Regresar.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
+        jB_Regresar.setText("Volver");
+        jB_Regresar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jB_Regresar.setContentAreaFilled(false);
+        jB_Regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_RegresarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jP_BarraLayout = new javax.swing.GroupLayout(jP_Barra);
+        jP_Barra.setLayout(jP_BarraLayout);
+        jP_BarraLayout.setHorizontalGroup(
+            jP_BarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_BarraLayout.createSequentialGroup()
+                .addComponent(jP_CerrarX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 706, Short.MAX_VALUE)
+                .addComponent(jB_Regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jP_BarraLayout.setVerticalGroup(
+            jP_BarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jP_CerrarX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jB_Regresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jP_Barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 40));
+
+        jL_FondoMorado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/inci.jpg"))); // NOI18N
+        jL_FondoMorado.setText("jLabel1");
+        jL_FondoMorado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jL_FondoMorado, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 70, 510));
+
+        jTable1.setBackground(new java.awt.Color(0, 0, 0));
+        jTable1.setForeground(new java.awt.Color(255, 255, 255));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "id", "Nombre", "Contraseña", "Correo"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 750, 410));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jL_exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_exitMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jL_exitMouseClicked
+
+    private void jL_exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_exitMouseEntered
+        jP_CerrarX.setBackground(Color.red);
+    }//GEN-LAST:event_jL_exitMouseEntered
+
+    private void jL_exitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_exitMouseExited
+        jP_CerrarX.setBackground(new Color(255,0,153));
+    }//GEN-LAST:event_jL_exitMouseExited
+
+    private void jP_CerrarXMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_CerrarXMouseEntered
+        //ME EQUIVOQUÉ
+    }//GEN-LAST:event_jP_CerrarXMouseEntered
+
+    private void jB_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_RegresarActionPerformed
         Inicio newframe = new Inicio();
         newframe.setVisible(true);
         this.dispose();
         newframe.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jB_RegresarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jP_BarraMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_BarraMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse,y- yMouse);
+    }//GEN-LAST:event_jP_BarraMouseDragged
+
+    private void jP_BarraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_BarraMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_jP_BarraMousePressed
 
     /**
      * @param args the command line arguments
@@ -131,10 +216,13 @@ public class ActualizarDatos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton jB_Regresar;
+    private javax.swing.JLabel jL_FondoMorado;
+    private javax.swing.JLabel jL_exit;
+    private javax.swing.JPanel jP_Barra;
+    private javax.swing.JPanel jP_CerrarX;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

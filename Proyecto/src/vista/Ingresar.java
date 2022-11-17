@@ -1,18 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package vista;
 
-/**
- *
- * @author tomas
- */
+import java.awt.Color;
+
 public class Ingresar extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Ingresar
-     */
+    int xMouse, yMouse; //variables para cada eje
+    
+    
     public Ingresar() {
         initComponents();
     }
@@ -26,74 +20,251 @@ public class Ingresar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jT_Usuario = new javax.swing.JTextField();
+        jPass_Contrasena = new javax.swing.JPasswordField();
+        jP_Barra = new javax.swing.JPanel();
+        jP_CerrarX = new javax.swing.JPanel();
+        jL_exit = new javax.swing.JLabel();
+        jB_Regresar = new javax.swing.JButton();
+        jL_FondoMorado = new javax.swing.JLabel();
+        jL_ContrasenaTexto = new javax.swing.JLabel();
+        jL_UsuarioTexto = new javax.swing.JLabel();
+        jB_Ingresar1 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/inci.jpg"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(820, 510));
+        jLabel1.setMinimumSize(new java.awt.Dimension(820, 510));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(820, 510));
+        setUndecorated(true);
+        setResizable(false);
 
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField1.setText("Tomas");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+        jT_Usuario.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
+        jT_Usuario.setForeground(new java.awt.Color(204, 204, 204));
+        jT_Usuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jT_Usuario.setText("Ingrese su nombre de usuario");
+        jT_Usuario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jT_Usuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jT_UsuarioMousePressed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 250, 50));
-
-        jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPasswordField1.setText("jPasswordField1");
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 250, 50));
-
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("REGRESAR");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jT_Usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jT_UsuarioActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 530, 170, 40));
+        jPanel1.add(jT_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 250, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ingresar.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPass_Contrasena.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jPass_Contrasena.setForeground(new java.awt.Color(204, 204, 204));
+        jPass_Contrasena.setText("********");
+        jPass_Contrasena.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPass_Contrasena.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPass_ContrasenaMousePressed(evt);
+            }
+        });
+        jPanel1.add(jPass_Contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 250, 50));
+
+        jP_Barra.setBackground(new java.awt.Color(204, 204, 204));
+        jP_Barra.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jP_BarraMouseDragged(evt);
+            }
+        });
+        jP_Barra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jP_BarraMousePressed(evt);
+            }
+        });
+
+        jP_CerrarX.setBackground(new java.awt.Color(255, 0, 153));
+        jP_CerrarX.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jP_CerrarXMouseEntered(evt);
+            }
+        });
+
+        jL_exit.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        jL_exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jL_exit.setText("X");
+        jL_exit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jL_exit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jL_exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_exitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jL_exitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jL_exitMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jP_CerrarXLayout = new javax.swing.GroupLayout(jP_CerrarX);
+        jP_CerrarX.setLayout(jP_CerrarXLayout);
+        jP_CerrarXLayout.setHorizontalGroup(
+            jP_CerrarXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jL_exit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+        );
+        jP_CerrarXLayout.setVerticalGroup(
+            jP_CerrarXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jL_exit, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        jB_Regresar.setBackground(new java.awt.Color(255, 153, 255));
+        jB_Regresar.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
+        jB_Regresar.setText("Volver");
+        jB_Regresar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jB_Regresar.setContentAreaFilled(false);
+        jB_Regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jB_Regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_RegresarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jP_BarraLayout = new javax.swing.GroupLayout(jP_Barra);
+        jP_Barra.setLayout(jP_BarraLayout);
+        jP_BarraLayout.setHorizontalGroup(
+            jP_BarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_BarraLayout.createSequentialGroup()
+                .addComponent(jP_CerrarX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 706, Short.MAX_VALUE)
+                .addComponent(jB_Regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jP_BarraLayout.setVerticalGroup(
+            jP_BarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jP_CerrarX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jB_Regresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jP_Barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 40));
+
+        jL_FondoMorado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/inci.jpg"))); // NOI18N
+        jL_FondoMorado.setText("jLabel1");
+        jPanel1.add(jL_FondoMorado, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 70, 510));
+
+        jL_ContrasenaTexto.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jL_ContrasenaTexto.setText("CONTRASEÑA");
+        jPanel1.add(jL_ContrasenaTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, -1));
+
+        jL_UsuarioTexto.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
+        jL_UsuarioTexto.setText("USUARIO");
+        jPanel1.add(jL_UsuarioTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
+
+        jB_Ingresar1.setBackground(new java.awt.Color(255, 153, 255));
+        jB_Ingresar1.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
+        jB_Ingresar1.setText("Ingresar");
+        jB_Ingresar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jB_Ingresar1.setContentAreaFilled(false);
+        jB_Ingresar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jB_Ingresar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jB_Ingresar1MouseClicked(evt);
+            }
+        });
+        jB_Ingresar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_Ingresar1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jB_Ingresar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 110, 40));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 250, 20));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 250, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jT_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_UsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jT_UsuarioActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Inicio newframe = new Inicio();
-        newframe.setVisible(true);
-        this.dispose();
-        newframe.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jL_exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_exitMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jL_exitMouseClicked
+
+    private void jL_exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_exitMouseEntered
+        jP_CerrarX.setBackground(Color.red);
+    }//GEN-LAST:event_jL_exitMouseEntered
+
+    private void jL_exitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_exitMouseExited
+        jP_CerrarX.setBackground(new Color(255,0,153));
+    }//GEN-LAST:event_jL_exitMouseExited
+
+    private void jP_CerrarXMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_CerrarXMouseEntered
+        //ME EQUIVOQUÉ
+    }//GEN-LAST:event_jP_CerrarXMouseEntered
+
+    private void jP_BarraMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_BarraMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse,y- yMouse);
+    }//GEN-LAST:event_jP_BarraMouseDragged
+
+    private void jP_BarraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP_BarraMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_jP_BarraMousePressed
+
+    private void jB_Ingresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_Ingresar1ActionPerformed
+        javax.swing.JOptionPane.showMessageDialog(this,"Usuario creado como...\n Usuario: "+ jT_Usuario.getText()+ "\n Contraseña: "+ String.valueOf(jPass_Contrasena.getPassword()),"Login", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jB_Ingresar1ActionPerformed
+
+    private void jB_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_RegresarActionPerformed
+       Inicio newframe = new Inicio();
+       newframe.setVisible(true);
+       this.dispose();
+       newframe.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jB_RegresarActionPerformed
+
+    private void jT_UsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jT_UsuarioMousePressed
+        if (jT_Usuario.getText().equals("Ingrese su nombre de usuario")){
+            jT_Usuario.setText("");
+            jT_Usuario.setForeground(Color.black);
+        }
+        if(String.valueOf(jPass_Contrasena.getPassword()).isEmpty()){
+            jPass_Contrasena.setText("********");
+            jPass_Contrasena.setForeground(new Color(204,204,204));
+        }
+        
+    }//GEN-LAST:event_jT_UsuarioMousePressed
+
+    private void jPass_ContrasenaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPass_ContrasenaMousePressed
+        if(String.valueOf(jPass_Contrasena.getPassword()).equals("********")){
+            jPass_Contrasena.setText("");
+            jPass_Contrasena.setForeground(Color.black);
+        }
+        if(jT_Usuario.getText().isEmpty()){
+            jT_Usuario.setText("Ingrese su nombre de usuario");
+            jT_Usuario.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_jPass_ContrasenaMousePressed
+
+    private void jB_Ingresar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_Ingresar1MouseClicked
+        
+    }//GEN-LAST:event_jB_Ingresar1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -131,10 +302,19 @@ public class Ingresar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jB_Ingresar1;
+    private javax.swing.JButton jB_Regresar;
+    private javax.swing.JLabel jL_ContrasenaTexto;
+    private javax.swing.JLabel jL_FondoMorado;
+    private javax.swing.JLabel jL_UsuarioTexto;
+    private javax.swing.JLabel jL_exit;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jP_Barra;
+    private javax.swing.JPanel jP_CerrarX;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField jPass_Contrasena;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextField jT_Usuario;
     // End of variables declaration//GEN-END:variables
 }
