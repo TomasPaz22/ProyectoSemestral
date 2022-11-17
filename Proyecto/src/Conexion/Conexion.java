@@ -26,7 +26,7 @@ public class Conexion{
             System.out.println("Conexion Lista");
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Problemas para conectarse a la base de datos.", 
-                    "Mensajes", JOptionPane.ERROR_MESSAGE);
+            "Mensajes", JOptionPane.ERROR_MESSAGE);
         }
     }
     
