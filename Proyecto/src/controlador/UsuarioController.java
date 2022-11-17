@@ -14,9 +14,11 @@ public class UsuarioController {
     private static final String SQL_DELETE  = "DELETE FROM PACIENTE WHERE rut = ?";
     private static final String SQL_READ    = "SELECT * FROM PACIENTE WHERE rut = ?";
     private static final String SQL_READALL = "SELECT * FROM PACIENTE ORDER BY rut";
+    
     private PreparedStatement ps;
     private ResultSet rs;
-    private static final Conexion c = new Conexion();
+    
+    private static final Conexion c = Conexion.obtenerEstadoConexion();
     public boolean create(Usuario u) throws SQLException {
         try 
         {
@@ -40,7 +42,7 @@ public class UsuarioController {
         }
         finally
         {
-            c.cerrar();
+            c.cerrarConexion();
         }
         return false;
     }
